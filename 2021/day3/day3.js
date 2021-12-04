@@ -1009,28 +1009,28 @@ const input = raw.split("\n")
 const countBitOccurrences = (input) => {
   //Assuming that each row is of equal length ....
   const length = input[0].length;
-  const zeros = Array(length).fill(0);
+  const zeroes = Array(length).fill(0);
   const ones = Array(length).fill(0);
 
   for(const entry of input) {
     const rows = [...entry];
     rows.forEach((bit, column) => {
       if(bit === '0') {
-         zeros[column]++;
+         zeroes[column]++;
       } else {
         ones[column]++;
       }
     });
   } 
-  return {zeros, ones};
+  return {zeroes, ones};
 }
 
 const findPowerConsumption = (input) => {
-  const { zeros, ones } = countBitOccurrences(input);
+  const { zeroes, ones } = countBitOccurrences(input);
   let gammaRate = "";
   let epsilonRate = "";
   ones.forEach((one, index) => {
-    if(one > zeros[index]){
+    if(one > zeroes[index]){
       gammaRate += '1';
       epsilonRate += '0';
     }else {
@@ -1041,12 +1041,23 @@ const findPowerConsumption = (input) => {
   return parseInt(gammaRate,2) * parseInt(epsilonRate,2);
 }
 
-console.log(findPowerConsumption(input));
- 
+const findLifeSupport = (raw) => {
+  const input = raw.split('\n');  
+  const findBit = (input, bit, index = 0) => {
+    if(input.length===1) return parseInt(input[0], 2);
+    const zeroes = input.filter(item => item[index] === '0');
+    const ones = input.filter(item => item[index] === '1');
+    const lookForzeroes = zeroes.length > ones.length === bit;
+    return findBit(lookForzeroes ? zeroes : ones, bit, index+1);
+  }
+  
+  const findOxygen = (input) => findBit(input, true);
+  const findCO2 = (input) => findBit(input, false);
+  return findOxygen(input) *findCO2(input)
+}
 
-
-
-
+console.log(findPowerConsumption(input)); //part 1
+console.log(findLifeSupport(raw)); // part 2
 
 
 
