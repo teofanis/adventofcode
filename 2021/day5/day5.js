@@ -504,7 +504,7 @@ const raw = `
  const extractCoordinateBands = (line) => {
   const x1 = parseInt(line[0].split(',')[0], 10);
   const y1 = parseInt(line[0].split(',')[1], 10);
-   
+
   const x2 = parseInt(line[1].split(',')[0], 10);
   const y2 = parseInt(line[1].split(',')[1], 10);
    // console.log(line);
@@ -512,25 +512,28 @@ const raw = `
       from :{
         x : x1,
         y : y1,
-      }, 
+      },
       to: {
         x: x2,
         y: y2
       }
     }
  }
- 
+
  const extractFromToCoordinates = (coordinates, key) => {
-   // console.log(coordinates, [
-   //   Math.min(coordinates.from[key], coordinates.to[key]), 
-   //   Math.max(coordinates.from[key], coordinates.to[key])
-   //  ]);
    return [
-     Math.min(coordinates.from[key], coordinates.to[key]), 
+     Math.min(coordinates.from[key], coordinates.to[key]),
      Math.max(coordinates.from[key], coordinates.to[key])
     ];
  }
- 
+
+ const getDirectionFromCoordinates = (coordinates) => {
+   return [
+     (coordinates.from.x < coordinates.to.x ? 1 : -1),
+     (coordinates.from.y < coordinates.to.y ? 1 : -1),
+   ]
+ }
+
  const createGrid = (x,y) => {
   return new Array(x + 1).fill(0).map(x => new Array(y+1).fill(0));
  }
@@ -544,24 +547,53 @@ let input = raw.trim()
 
 const filteredInput = input.filter(coordinates => ((coordinates.from.x === coordinates.to.x) || (coordinates.from.y === coordinates.to.y)))
 
-const maxX = Math.max(...filteredInput.map(coordinates => [coordinates.from.x, coordinates.to.x]).flat());
-const maxY = Math.max(...filteredInput.map(coordinates => [coordinates.from.y, coordinates.to.y]).flat());
-const grid = createGrid(maxX, maxY);
+let maxX = Math.max(...filteredInput.map(coordinates => [coordinates.from.x, coordinates.to.x]).flat());
+let maxY = Math.max(...filteredInput.map(coordinates => [coordinates.from.y, coordinates.to.y]).flat());
+let grid = createGrid(maxX, maxY);
 
 
 filteredInput.forEach((coordinates) => {
   const [fromX, toX] = extractFromToCoordinates(coordinates, 'x');
   const [fromY, toY] = extractFromToCoordinates(coordinates, 'y');
-  console.log(`From ${fromX} to ${toX} on the X axis;`);
-  console.log(`From ${fromY} to ${toY} on the Y axis;`);
    for (let row = fromX; row <= toX ; row++) {
           for (let column = fromY; column <= toY ; column++) {
               grid[column][row] += 1;
           }
       }
 })
-const result = grid.map(row => row.filter(cell => cell > 1).length).reduce((a, b) => a + b, 0);
+const part1Result = grid.map(row => row.filter(cell => cell > 1).length).reduce((a, b) => a + b, 0);
 
-console.log(result) //part 1
+console.log(part1Result) //part 1
 
- 
+// part 2
+//diagonal line =  ((x1-x2) - (y1-y2) == 0)
+
+maxX = Math.max(...input.map(coordinates => [coordinates.from.x, coordinates.to.x]).flat());
+maxY = Math.max(...input.map(coordinates => [coordinates.from.y, coordinates.to.y]).flat());
+grid = createGrid(maxX, maxY);
+const diagonals = input.filter(coordinates => (coordinates.from.x !== coordinates.to.x) && (coordinates.from.y !== coordinates.to.y));
+const consideredLines = input.filter(coordinates => ((coordinates.from.x === coordinates.to.x) || (coordinates.from.y === coordinates.to.y)))
+
+consideredLines.forEach((coordinates) => {
+  const [fromX, toX] = extractFromToCoordinates(coordinates, 'x');
+  const [fromY, toY] = extractFromToCoordinates(coordinates, 'y');
+   for (let row = fromX; row <= toX ; row++) {
+          for (let column = fromY; column <= toY ; column++) {
+              grid[column][row] += 1;
+          }
+      }
+})
+
+diagonals.forEach((coordinates) => {
+  const iterations = Math.abs(coordinates.from.x - coordinates.to.x) + 1;
+  const [directionX, directionY] = getDirectionFromCoordinates(coordinates);
+    for(let i=0; i < iterations; i++) {
+      const row = coordinates.from.x + directionX * i;
+      const column = coordinates.from.y + directionY * i;
+      grid[column][row] +=1;
+    }
+})
+
+const part2Result = grid.map(row => row.filter(cell => cell > 1).length).reduce((a, b) => a + b, 0);
+
+console.log(part2Result) //part 2
