@@ -5,13 +5,8 @@ type Backpack = {
   compartment2: string;
 };
 
-const parseInput = (rawInput: string) : Backpack[] => {
-  return rawInput.split("\n").map((bag) => {
-    return {
-      compartment1:  bag.slice(0, bag.length/2),
-      compartment2:  bag.slice(bag.length/2, bag.length),
-    }
-  });
+const parseInput = (rawInput: string) : string[] => {
+  return rawInput.split("\n");
 };
 
 const findCommonItems = (compartment1: string, compartment2: string) => {
@@ -30,7 +25,12 @@ const calculatePriority = (letter : string) => {
 
 
 const part1 = (rawInput: string) => {
-  const backpacks = parseInput(rawInput);
+  const backpacks = parseInput(rawInput).map((bag) => {
+    return {
+      compartment1:  bag.slice(0, bag.length/2),
+      compartment2:  bag.slice(bag.length/2, bag.length),
+    }
+  }) as Backpack[];
   const prioritySum = backpacks.reduce((acc, {compartment1, compartment2}) =>  {
     const [commonItem] = findCommonItems(compartment1, compartment2)
     return acc + calculatePriority(commonItem);
@@ -39,9 +39,24 @@ const part1 = (rawInput: string) => {
 };
 
 const part2 = (rawInput: string) => {
-  const input = parseInput(rawInput);
+  const backpacks = parseInput(rawInput);
+  // chunk the backpacks into groups of 3
+  const groups = backpacks.reduce((acc, backpack, index) => {
+  const groupIndex = Math.floor(index / 3);
+    if (!acc[groupIndex]) {
+      acc[groupIndex] = [];
+    }
+    acc[groupIndex].push(backpack);
+    return acc;
+  }, [] as string[][]);
 
-  return;
+  const prioritySum = groups.reduce((acc, group) => {
+    const [compartment1, compartment2, compartment3] = group;
+    const commonItems = findCommonItems(compartment1, compartment2);
+    const [commonItem] = findCommonItems(compartment3, commonItems.join(""));
+    return acc + calculatePriority(commonItem);
+  }, 0);
+  return prioritySum;
 };
 
 
@@ -67,7 +82,7 @@ run({
     tests: [
       {
         input: testInput,
-        expected: "",
+        expected: 70,
       },
     ],
     solution: part2,
