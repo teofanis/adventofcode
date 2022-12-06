@@ -64,27 +64,27 @@
         "solved": true,
         "result": "PSNRGBTFT",
         "attempts": [],
-        "time": 2.621384
+        "time": 4.408904
       },
       "part2": {
         "solved": true,
         "result": "BNTZFPMMW",
         "attempts": [],
-        "time": 1.45046
+        "time": 3.323791
       }
     },
     {
       "part1": {
-        "solved": false,
-        "result": null,
+        "solved": true,
+        "result": "1625",
         "attempts": [],
-        "time": null
+        "time": 1.099074
       },
       "part2": {
-        "solved": false,
-        "result": null,
+        "solved": true,
+        "result": "2250",
         "attempts": [],
-        "time": null
+        "time": 3.476126
       }
     },
     {
