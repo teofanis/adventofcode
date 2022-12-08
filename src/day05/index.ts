@@ -134,5 +134,5 @@ run({
     solution: part2,
   },
   trimTestInputs: false,
-  onlyTests: false,
+  onlyTests: true,
 });

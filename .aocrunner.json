@@ -8,13 +8,13 @@
         "solved": true,
         "result": "66719",
         "attempts": [],
-        "time": 0.515175
+        "time": 0.481333
       },
       "part2": {
         "solved": true,
         "result": "198551",
         "attempts": [],
-        "time": 0.536002
+        "time": 0.8411
       }
     },
     {
@@ -64,13 +64,13 @@
         "solved": true,
         "result": "PSNRGBTFT",
         "attempts": [],
-        "time": 4.408904
+        "time": 3.492228
       },
       "part2": {
         "solved": true,
         "result": "BNTZFPMMW",
         "attempts": [],
-        "time": 3.323791
+        "time": 2.856666
       }
     },
     {
@@ -78,41 +78,41 @@
         "solved": true,
         "result": "1625",
         "attempts": [],
-        "time": 1.099074
+        "time": 0.807756
       },
       "part2": {
         "solved": true,
         "result": "2250",
         "attempts": [],
-        "time": 3.476126
+        "time": 2.855111
       }
     },
     {
       "part1": {
-        "solved": false,
-        "result": null,
+        "solved": true,
+        "result": "1743217",
         "attempts": [],
-        "time": null
+        "time": 2.635423
       },
       "part2": {
-        "solved": false,
-        "result": null,
+        "solved": true,
+        "result": "8319096",
         "attempts": [],
-        "time": null
+        "time": 2.539845
       }
     },
     {
       "part1": {
-        "solved": false,
-        "result": null,
+        "solved": true,
+        "result": "1818",
         "attempts": [],
-        "time": null
+        "time": 30.453392
       },
       "part2": {
-        "solved": false,
-        "result": null,
+        "solved": true,
+        "result": "368368",
         "attempts": [],
-        "time": null
+        "time": 14.635055
       }
     },
     {
