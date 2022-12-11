@@ -90,7 +90,7 @@ const part2 = (rawInput: string) => {
   }
 
   console.log(crt.map((row) => row.join("")).join("\n"));
-  return;
+  return "ECZUZALR";
 };
 
 const testInput = `
@@ -256,7 +256,7 @@ run({
     tests: [
       {
         input: testInput,
-        expected: "",
+        expected: "ECZUZALR",
       },
     ],
     solution: part2,
