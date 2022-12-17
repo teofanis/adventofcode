@@ -61,7 +61,6 @@ const part2 = (rawInput: string) => {
   const six = [[6]];
   flattened.push(two, six);
   flattened.sort((a, b) => compare(b, a));
-  console.log(flattened);
   const twoIndex = flattened.indexOf(two) + 1;
   const sixIndex = flattened.indexOf(six) + 1;
 
