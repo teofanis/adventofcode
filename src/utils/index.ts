@@ -29,3 +29,12 @@
  *     import { myUtil } from '../utils'
  *
  */
+
+export const printMatrix = <T>(matrix: T[][], transformer?: (item: T) => string, header?:(rowIndex:number) => string) => {
+
+    for(let rowIndex = 0; rowIndex < matrix.length; rowIndex++) {
+        const row = transformer ? matrix[rowIndex].map(i => transformer(i)) : matrix[rowIndex];
+        const rowStr = row.join(' ');
+        console.log(header ? header(rowIndex) : '', rowStr);
+    }
+}

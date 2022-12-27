@@ -24,7 +24,7 @@
 [![Day](https://badgen.net/badge/11/%E2%98%85%E2%98%85/green)](src/day11)
 [![Day](https://badgen.net/badge/12/%E2%98%85%E2%98%85/green)](src/day12)
 [![Day](https://badgen.net/badge/13/%E2%98%85%E2%98%85/green)](src/day13)
-![Day](https://badgen.net/badge/14/%E2%98%86%E2%98%86/gray)
+[![Day](https://badgen.net/badge/14/%E2%98%85%E2%98%85/green)](src/day14)
 ![Day](https://badgen.net/badge/15/%E2%98%86%E2%98%86/gray)
 ![Day](https://badgen.net/badge/16/%E2%98%86%E2%98%86/gray)
 ![Day](https://badgen.net/badge/17/%E2%98%86%E2%98%86/gray)
@@ -71,98 +71,98 @@ npm start 1
 Day 01
 Time part 1: 0.481ms
 Time part 2: 0.841ms
-Both parts: 1.322ms
+Both parts: 1.322433ms
 ```
 
 ```
 Day 02
 Time part 1: 3.081ms
 Time part 2: 3.379ms
-Both parts: 6.459ms
+Both parts: 6.459244ms
 ```
 
 ```
 Day 03
 Time part 1: 0.537ms
 Time part 2: 0.57ms
-Both parts: 1.107ms
+Both parts: 1.107389ms
 ```
 
 ```
 Day 04
 Time part 1: 4.107ms
 Time part 2: 3.912ms
-Both parts: 8.02ms
+Both parts: 8.019813000000001ms
 ```
 
 ```
 Day 05
 Time part 1: 3.492ms
 Time part 2: 2.857ms
-Both parts: 6.349ms
+Both parts: 6.348894ms
 ```
 
 ```
 Day 06
 Time part 1: 0.808ms
 Time part 2: 2.855ms
-Both parts: 3.663ms
+Both parts: 3.662867ms
 ```
 
 ```
 Day 07
 Time part 1: 2.635ms
 Time part 2: 2.54ms
-Both parts: 5.175ms
+Both parts: 5.175268ms
 ```
 
 ```
 Day 08
 Time part 1: 30.453ms
 Time part 2: 14.635ms
-Both parts: 45.088ms
+Both parts: 45.088447ms
 ```
 
 ```
 Day 09
 Time part 1: 8.082ms
 Time part 2: 8.41ms
-Both parts: 16.492ms
+Both parts: 16.491918ms
 ```
 
 ```
 Day 10
 Time part 1: 0.213ms
 Time part 2: -
-Both parts: 0.213ms
+Both parts: 0.212855ms
 ```
 
 ```
 Day 11
 Time part 1: 0.784ms
 Time part 2: 38.607ms
-Both parts: 39.391ms
+Both parts: 39.390748ms
 ```
 
 ```
 Day 12
 Time part 1: 18.11ms
 Time part 2: 199.422ms
-Both parts: 217.532ms
+Both parts: 217.532014ms
 ```
 
 ```
 Day 13
 Time part 1: 0.83ms
 Time part 2: 8.604ms
-Both parts: 9.434ms
+Both parts: 9.434064000000001ms
 ```
 
 ```
 Day 14
-Time part 1: -
-Time part 2: -
-Both parts: -
+Time part 1: 17.278ms
+Time part 2: 40.047ms
+Both parts: 57.324851ms
 ```
 
 ```
@@ -243,8 +243,8 @@ Both parts: -
 ```
 
 ```
-Total stars: 26/50
-Total time: 360.246ms
+Total stars: 28/50
+Total time: 417.571ms
 ```
 
 <!--/RESULTS-->
