@@ -6,6 +6,7 @@
   "scripts": {
     "start": "aocrunner day",
     "build": "aocrunner build",
+    "update:readme" : "aocrunner update:readme",
     "format": "prettier -w src"
   },
   "keywords": [
