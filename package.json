@@ -1,7 +1,7 @@
 {
-  "name": "aoc2022",
+  "name": "aoc",
   "version": "1.0.0",
-  "description": "Advent of Code 2022 - solutions",
+  "description": "Advent of Code - solutions",
   "type": "module",
   "scripts": {
     "start": "aocrunner day",
