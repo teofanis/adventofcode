@@ -32,10 +32,28 @@ const getMatches = (card1: number[], card2: number[]) : number => {
   return matches.length;
 }; 
   
+function countFinalCards(cards: number[][][]) {
+  let i = 1;
+  const tmp = [...cards];
+  const cardCount: Record<string, number> = {};
+  while (i < cards.length + 1) {
+    const card = tmp[i - 1];
+    const [winningNumber, cardNumbers] = card;
+    const matchingNumbers = getMatches(winningNumber, cardNumbers);
+    cardCount[i.toString()] = cardCount[i.toString()] ?? 1;
+    for (let j = 0; j < matchingNumbers; j++) {
+      const nextCardIndex = i + j + 1;
+      cardCount[nextCardIndex.toString()] = (cardCount[nextCardIndex.toString()] ?? 1) + 1 * cardCount[i.toString()];
+    }
+    i++;
+  }
+  delete cardCount[i.toString()];
+  const totalScore = Object.values(cardCount).reduce((acc, curr) => acc + curr, 0);
+  return totalScore;
+}
  
 const part2 = (rawInput: string) => {
-  // TBD
-   
+  return countFinalCards(parseInput(rawInput));
  };
 
 
@@ -68,5 +86,5 @@ run({
     solution: part2,
   },
   trimTestInputs: true,
-  onlyTests: true,
+  onlyTests: false,
 });
