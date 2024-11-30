@@ -244,7 +244,7 @@ Both parts: -
 
 ```
 Total stars: 0/50
-Total time: -
+Total time: 0ms
 ```
 
 <!--/RESULTS-->
