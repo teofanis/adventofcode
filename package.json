@@ -6,7 +6,7 @@
   "scripts": {
     "start": "aocrunner day",
     "build": "aocrunner build",
-    "update:readme" : "aocrunner update:readme",
+    "update:readme": "aocrunner update:readme",
     "format": "prettier -w src"
   },
   "keywords": [
@@ -16,7 +16,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^16.11.6",
-    "aocrunner": "^1.9.6",
+    "aocrunner": "^1.10.0",
     "prettier": "^2.4.1"
   },
   "engines": {

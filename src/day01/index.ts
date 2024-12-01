@@ -9,11 +9,14 @@ const parseInput = (rawInput: string): ListRegister => {
   const leftList: number[] = [];
   const rightList: number[] = [];
 
-  rawInput.trim().split("\n").forEach((line) => {
-    const [left, right] = line.split(/\s+/).map(Number);
-    leftList.push(left);
-    rightList.push(right);
-  });
+  rawInput
+    .trim()
+    .split("\n")
+    .forEach((line) => {
+      const [left, right] = line.split(/\s+/).map(Number);
+      leftList.push(left);
+      rightList.push(right);
+    });
 
   return { leftList, rightList };
 };
@@ -73,5 +76,5 @@ run({
     solution: part2,
   },
   trimTestInputs: true,
-  onlyTests: true,
+  onlyTests: false,
 });
