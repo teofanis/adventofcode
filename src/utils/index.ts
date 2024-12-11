@@ -44,6 +44,11 @@ export const printMatrix = <T>(
   }
 };
 
+export function* chunks<T>(arr: T[], n: number): Generator<T[], void> {
+  for (let i = 0; i < arr.length; i += n) {
+    yield arr.slice(i, i + n);
+  }
+}
 /**
  * Utility library for 2D arrays (matrices) and maps.
  */
