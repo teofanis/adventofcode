@@ -1,6 +1,6 @@
 import run from "aocrunner";
 import { Graph, Node } from "../utils/graph.js";
- 
+
 const parseInput = (rawInput: string) =>
   rawInput.split("\n").map((i) => i.split(""));
 const calculatePerimeter = (
@@ -65,8 +65,6 @@ const exploreRegion = (
 
   return { area, perimeter };
 };
- 
-
 
 const part1 = (rawInput: string) => {
   const input = parseInput(rawInput);
@@ -87,11 +85,9 @@ const part1 = (rawInput: string) => {
   return totalCost;
 };
 
-
 const part2 = (rawInput: string) => {
   const input = parseInput(rawInput);
-   
-}
+};
 
 const testInput = `
 RRRRIICCFF
