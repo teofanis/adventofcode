@@ -1,5 +1,5 @@
 import run from "aocrunner";
-import { chunks } from "../utils/index.js";
+import { chunks } from "../../../src/utils/index.js";
 
 type Position = { x: number; y: number };
 type Machine = { buttonA: Position; buttonB: Position; prize: Position };

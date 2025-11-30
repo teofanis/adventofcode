@@ -1,5 +1,5 @@
 import run from "aocrunner";
-import { printMatrix } from "../utils/index.js";
+import { printMatrix } from "../../../src/utils/index.js";
 
 type Position = {
   x: number;

@@ -1,5 +1,5 @@
 import run from "aocrunner";
-import { Graph, Node } from "../utils/graph.js";
+import { Graph, Node } from "../../../src/utils/graph.js";
 
 const parseInput = (rawInput: string) =>
   rawInput.split("\n").map((i) => i.split(""));

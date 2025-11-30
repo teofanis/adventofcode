@@ -1,5 +1,5 @@
 import run from "aocrunner";
-import { MatrixUtils } from "../utils/index.js";
+import { MatrixUtils } from "../../../src/utils/index.js";
 
 interface Point {
   x: number;

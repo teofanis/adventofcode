@@ -1,5 +1,5 @@
 import run from "aocrunner";
-import { Graph, Node, recursiveDFS } from "../utils/graph.js";
+import { Graph, Node, recursiveDFS } from "../../../src/utils/graph.js";
 
 class Trailhead extends Node<number> {
   getRating(): number {
