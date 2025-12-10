@@ -255,4 +255,29 @@ export const MatrixUtils = {
     }
     return true;
   },
+  *cells<T>(matrix: T[][]): Generator<{ value: T; row: number; col: number }> {
+    for (let row = 0; row < matrix.length; row++) {
+      for (let col = 0; col < matrix[row].length; col++) {
+        yield { value: matrix[row][col], row, col };
+      }
+    }
+  },
+  neighbors8<T>(matrix: T[][], r: number, c: number) {
+    const dirs = [
+      [-1, -1], [-1, 0], [-1, 1],
+      [0, -1], [0, 1],
+      [1, -1], [1, 0], [1, 1],
+    ];
+    return dirs
+      .map(([dr, dc]) => [r + dr, c + dc] as [number, number])
+      .filter(([rr, cc]) => this.isInBounds(matrix, rr, cc));
+  },
+  countNeighbors<T>(matrix: T[][], r: number, c: number, val: T): number {
+    return this.neighbors8(matrix, r, c)
+      .filter(([rr, cc]) => matrix[rr][cc] === val)
+      .length;
+  }
+
+
+
 };
